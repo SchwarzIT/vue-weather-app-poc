@@ -1,18 +1,29 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <div class="container text-center my-5">
+      <div v-if="this.$auth.authenticated">
+        <scu-headline class="title m-3" element="h1"
+          >Welcome to {{ title }}!
+        </scu-headline>
+        <scu-link mode="sidebar" href="country-list" color="primary"
+          >Country List
+        </scu-link>
+      </div>
+      <div v-if="!this.$auth.authenticated">
+        <scu-headline class="title m-3" element="h1"
+          >Please, Log in by clicking on the button above to
+          proceed!</scu-headline
+        >
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
+import { Prop, Vue } from "vue-property-decorator";
 
-@Component({
-  components: {
-    HelloWorld
-  }
-})
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  @Prop() private title = "Vue Weather App";
+}
 </script>
+<style scoped></style>

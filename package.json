@@ -4,47 +4,71 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "lint": "vue-cli-service lint",
+    "release": "standard-version",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "cy:chrome": "cypress run --browser chrome",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run-record": "cypress run --record --key 126b2469-b8b7-4679-b90a-bbfe6b31513a",
+    "cypress:coverage": "npx nyc report --reporter=text-summary",
+    "cypress:lcov": "nyc report --reporter=lcov --reporter=text"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "register-service-worker": "^1.7.1",
+    "@auth0/auth0-spa-js": "^1.13.5",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@scu/core-ui": "^3.9.0",
+    "@types/auth0-js": "^9.14.2",
+    "auth0-js": "^9.14.0",
+    "axios": "^0.20.0",
+    "babel-plugin-istanbul": "^6.0.0",
+    "core-js": "^3.8.2",
+    "istanbul-lib-coverage": "^3.0.0",
+    "mochawesome": "^6.2.1",
+    "register-service-worker": "^1.7.2",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
+    "vue-cli-plugin-commitizen": "^0.1.0",
     "vue-property-decorator": "^8.4.2",
-    "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
+    "vue-router": "^3.4.9",
+    "vuex": "^3.6.0",
+    "vuex-persistedstate": "latest"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.9.0",
     "@types/chai": "^4.2.11",
+    "@types/jest": "^24.0.19",
     "@types/mocha": "^5.2.4",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-e2e-cypress": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-pwa": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-typescript": "~4.5.0",
-    "@vue/cli-plugin-unit-mocha": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/eslint-config-standard": "^5.1.2",
+    "@vue/cli-plugin-babel": "~4.5.10",
+    "@vue/cli-plugin-e2e-cypress": "^4.5.10",
+    "@vue/cli-plugin-eslint": "~4.5.10",
+    "@vue/cli-plugin-pwa": "~4.5.10",
+    "@vue/cli-plugin-router": "~4.5.10",
+    "@vue/cli-plugin-typescript": "~4.5.10",
+    "@vue/cli-plugin-unit-jest": "~4.5.10",
+    "@vue/cli-plugin-vuex": "~4.5.10",
+    "@vue/cli-service": "~4.5.10",
+    "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^5.0.2",
-    "@vue/test-utils": "^1.0.3",
+    "@vue/test-utils": "^1.1.2",
     "chai": "^4.1.2",
+    "concurrently": "^4.1.1",
+    "cypress": "^5.6.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^6.2.2",
+    "husky": "^4.3.7",
+    "json-server": "^0.15.0",
+    "json-server-reset": "^1.1.0",
     "lint-staged": "^9.5.0",
     "node-sass": "^4.12.0",
+    "nyc": "^15.1.0",
+    "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
+    "standard-version": "^9.1.0",
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11"
   },
@@ -56,5 +80,35 @@
       "vue-cli-service lint",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "nyc": {
+    "report-dir": "coverage/integration",
+    "reporter": [
+      "text",
+      "json",
+      "lcov"
+    ],
+    "all": true,
+    "include": [
+      "src/app/**/*.ts"
+    ],
+    "exclude": [
+      "src/registerServiceWorker.ts",
+      "src/models",
+      "src/main.ts"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/szai0103/vue-weather-app.git"
+  },
+  "publishConfig": {
+    "access": "restricted"
   }
 }

@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+}
+
+.callback, .user-profile, .home, .callback, .new-city {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem
+}
+
+img, #details-headline, #router-button, #add-button {
+  margin: 1rem;
+}
+
+scu-headline {
+  margin: 0.5rem;
+}
+
+scu-anchor-group {
+  text-align: center
+}
+
+scu-button {
+  margin: 1rem;
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Germany",
+    "cities": [
+      "Berlin 10",
+      "Munich 6",
+      "Menheim 12",
+      "Neckarsulm 10"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "France",
+    "cities": [
+      "Paris 10",
+      "Marseille 6",
+      "Lion 12",
+      "Nice 10"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Spain",
+    "cities": [
+      "Barcelona 15",
+      "Madrid 16",
+      "Valencia 12",
+      "Seville 17"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Hungary",
+    "cities": [
+      "Budapest 10",
+      "Deprecen 6",
+      "Tokaj 12",
+      "Sopron 10"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Switzerland",
+    "cities": [
+      "Zurich 10",
+      "Geneva 6",
+      "Bern 12",
+      "Basel 10"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Bulgaria",
+    "cities": [
+      "Sofia 10",
+      "Plovdiv 16",
+      "Varna 12",
+      "Burgas 10"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Romania",
+    "cities": [
+      "Bucharest 10",
+      "Constanta 6",
+      "Transilvania 12",
+      "Tulcea 10"
+    ]
+  }
+]
